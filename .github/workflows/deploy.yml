@@ -9,7 +9,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
           name: npm-debug-log-${{ hashFiles('package-lock.json') }}
           path: npm-debug.log
       - name: Build
-        run: npm run build
+        run: npm run build:deploy
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
