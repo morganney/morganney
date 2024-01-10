@@ -7,6 +7,7 @@
   "scripts": {
     "prettier": "prettier -w .",
     "build": "vite build",
+    "build:deploy": "vite build --base=/morganney/",
     "preview": "vite preview"
   },
   "author": "Morgan Ney <morganney@gmail.com>",
@@ -19,6 +20,7 @@
   "prettier": {
     "semi": false,
     "singleQuote": true,
+    "trailingComma": "none",
     "printWidth": 119
   }
 }
