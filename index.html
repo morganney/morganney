@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -19,18 +19,25 @@
     />
     <style>
       :root {
+        display: grid;
+        align-items: center;
+        height: -webkit-fill-available;
+        height: fill-available;
         font-size: 62.5%;
       }
       body {
         font-size: 1.4em;
         font-family: 'Roboto Mono', 'Lato', monospace;
-        padding: 24px;
-        max-width: 775px;
+        padding: 40px;
+        max-width: 725px;
         box-sizing: border-box;
       }
       main {
         display: grid;
         gap: 32px;
+      }
+      header img {
+        border-radius: 50%;
       }
       header > div {
         display: flex;
@@ -150,7 +157,7 @@
 
       import { Gol } from './gol.js'
 
-      createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 4} /> `)
+      createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 5} /> `)
       createRoot(document.getElementById('gol2')).render(html` <${Gol} scale=${1 / 14} /> `)
       createRoot(document.getElementById('tts')).render(
         html`
@@ -165,6 +172,7 @@
     <main>
       <header>
         <div>
+          <img src="https://gravatar.com/avatar/300de2d11f82bf5fca23482b2f6b92b86ca19c50c5035a889520a4831ae7be72" height="32px" />
           <h1>Morgan Ney</h1>
           <div id="tts"></div>
         </div>
@@ -184,16 +192,16 @@
             </header>
             <ul>
               <li>
-                <a href="https://test.busmap.online">Demo</a>
+                <a target="_blank" href="https://test.busmap.online">Demo</a>
               </li>
               <li>
-                <a href="https://github.com/morganney/busmap">GitHub</a>
+                <a target="_blank" href="https://github.com/morganney/busmap">GitHub</a>
               </li>
             </ul>
             <p>
-              Responsive web app providing leaflet maps of real-time arrival, and departure times of vehicles servicing
-              bus stops along routes in transit agencies across North and South America. Uses the
-              <a href="https://github.com/morganney/restbus"><code>restbus</code></a> API and other transit data
+              Responsive web app providing leaflet maps of real-time arrival, and departure times for vehicles servicing
+              bus stops in transit agencies across North and South America. Uses the
+              <a target="_blank" href="https://github.com/morganney/restbus"><code>restbus</code></a> API and other transit data
               providers.
             </p>
           </article>
@@ -203,15 +211,15 @@
             </header>
             <ul>
               <li>
-                <a href="https://www.cacareerzone.org">Home page</a>
+                <a target="_blank" href="https://www.cacareerzone.org">Home page</a>
               </li>
               <li>
-                <a href="https://www.cacareerzone.org/register">Registration</a>
+                <a target="_blank" href="https://www.cacareerzone.org/register">Registration</a>
               </li>
             </ul>
             <p>
               Fully resposive home page and registration for K-12 educational sofware provider
-              <a href="https://headed2.com/">Headed2</a>. Includes customized home page for all 50 states, and dual
+              <a target="_blank" href="https://headed2.com/">Headed2</a>. Includes customized home page for all 50 states, and dual
               registration mode as a modal or standalone page.
             </p>
           </article>
@@ -221,23 +229,23 @@
             </header>
             <ul>
               <li>
-                <a href="https://morganney.github.io/tts-react/">Demo</a>
+                <a target="_blank" href="https://morganney.github.io/tts-react/">Demo</a>
               </li>
               <li>
-                <a href="https://github.com/morganney/tts-react">GitHub</a>
+                <a target="_blank" href="https://github.com/morganney/tts-react">GitHub</a>
               </li>
             </ul>
             <p>
               React component and hook that uses the
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" rel="nofollow"
+              <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" rel="nofollow"
                 ><code>SpeechSynthesis</code></a
               >
               and
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance" rel="nofollow"
+              <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance" rel="nofollow"
                 ><code>SpeechSynthesisUtterance</code></a
               >
               API's to convert text to speech. Additionally supports the
-              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" rel="nofollow"
+              <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" rel="nofollow"
                 ><code>HTMLAudioElement</code></a
               >
               API by providing a callback prop to the hook or component.
@@ -249,14 +257,14 @@
             </header>
             <ul>
               <li>
-                <a href="https://github.com/knightedcodemonkey/duel">GitHub</a>
+                <a target="_blank" href="https://github.com/knightedcodemonkey/duel">GitHub</a>
               </li>
             </ul>
             <p>
               Tool for building a Node.js
-              <a href="https://nodejs.org/api/packages.html#dual-commonjses-module-packages">dual package</a> with
+              <a target="_blank" href="https://nodejs.org/api/packages.html#dual-commonjses-module-packages">dual package</a> with
               TypeScript. Uses
-              <a href="https://github.com/knightedcodemonkey/specifier"><code>@knighted/specifier</code></a> to rewrite
+              <a target="_blank" href="https://github.com/knightedcodemonkey/specifier"><code>@knighted/specifier</code></a> to rewrite
               module specifiers. Supports CommonJS and ES module projects.
             </p>
           </article>
@@ -266,13 +274,13 @@
             </header>
             <ul>
               <li>
-                <a href="https://github.com/morganney/magic-comments-loader">GitHub</a>
+                <a target="_blank" href="https://github.com/morganney/magic-comments-loader">GitHub</a>
               </li>
             </ul>
             <p>
               Node.js tool for adding Webpack
-              <a href="https://webpack.js.org/api/module-methods/#magic-comments">magic comments</a>. Specifically, a
-              <a href="https://webpack.js.org/loaders/">Webpack loader</a> that adds magic comments to your import
+              <a target="_blank" href="https://webpack.js.org/api/module-methods/#magic-comments">magic comments</a>. Specifically, a
+              <a target="_blank" href="https://webpack.js.org/loaders/">Webpack loader</a> that adds magic comments to your dynamic import
               expressions at build time.
             </p>
           </article>
@@ -282,9 +290,9 @@
       <footer>
         <ul>
           <li>
-            <a href="https://github.com/morganney">GitHub</a>
-            <a href="https://www.linkedin.com/in/morganney/">LinkedIn</a>
-            <a href="https://morgan.neys.info/resume">Resume</a>
+            <a target="_blank" href="https://github.com/morganney">GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/in/morganney/">LinkedIn</a>
+            <a target="_blank" href="https://morgan.neys.info/resume">Resume</a>
           </li>
         </ul>
         <address>

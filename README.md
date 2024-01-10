@@ -1,0 +1,1 @@
+👋 Hi, I'm interested in [JavaScript](https://tc39.es/) and [Web Development](https://developer.mozilla.org/en-US/docs/Learn). Particularly, the [Web Platform](https://html-now.github.io/). Read about some of my [recent projects](https://morganney.github.io/morganney/#projects) to see what else I've been working on.
