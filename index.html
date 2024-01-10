@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morgan Ney</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        font-size: 62.5%;
+      }
+      body {
+        font-size: 1.4em;
+        font-family: 'Roboto Mono', 'Lato', monospace;
+        padding: 24px;
+        max-width: 775px;
+        box-sizing: border-box;
+      }
+      main {
+        display: grid;
+        gap: 32px;
+      }
+      header > div {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+      }
+      h2 {
+        margin: 12px 0 0 0;
+      }
+      h3 {
+        margin: 0 0 16px 0;
+      }
+      p {
+        margin: 0;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 16px;
+      }
+      blockquote {
+        margin: 0;
+        padding: 0 0 0 30px;
+        display: grid;
+        gap: 8px;
+        border-left: 8px solid #efefef;
+      }
+      blockquote footer {
+        font-style: italic;
+      }
+      blockquote footer::before {
+        content: '\2014';
+      }
+      section > div {
+        display: grid;
+        gap: 20px;
+      }
+      article {
+        display: grid;
+        gap: 8px;
+      }
+      #tts > div div {
+        display: none;
+      }
+      #gol {
+        display: grid;
+        min-height: 50px;
+      }
+      #gol2 + footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      #gol2 + footer ul {
+        list-style: none;
+      }
+      #gol2 + footer address {
+        display: flex;
+        gap: 8px;
+      }
+      .gol-grid {
+        display: grid;
+        gap: 1px;
+        grid-template-columns: repeat(auto-fit, 12px);
+        grid-template-rows: repeat(auto-fit, 12px);
+        justify-content: center;
+        align-self: center;
+        overflow: hidden;
+      }
+      .gol-grid span {
+        width: 12px;
+        height: 12px;
+      }
+      .gol-grid span.alive {
+        background: #70c47e77;
+      }
+      .gol-grid span.dead {
+        background: #eaeaea66;
+      }
+      .tts-react {
+        gap: 0 !important;
+      }
+
+      @media (width <= 430px) {
+        #gol2 + footer {
+          align-items: flex-start;
+        }
+        #gol2 + footer address {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react",
+          "react-dom/": "https://esm.sh/react-dom/",
+          "tts-react": "https://esm.sh/tts-react@3.0.3",
+          "htm/": "https://esm.sh/htm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import { createRoot } from 'react-dom/client'
+      import { TextToSpeech } from 'tts-react'
+      import { html } from 'htm/react'
+
+      import { Gol } from './gol.js'
+
+      createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 4} /> `)
+      createRoot(document.getElementById('gol2')).render(html` <${Gol} scale=${1 / 14} /> `)
+      createRoot(document.getElementById('tts')).render(
+        html`
+          <${TextToSpeech} allowMuting=${false} size="small" rate=${0.9}>
+            Morgan Nigh
+          </${TextToSpeech}>
+        `,
+      )
+    </script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Morgan Ney</h1>
+          <div id="tts"></div>
+        </div>
+        <h2>Husband. Father. Web Dev.</h2>
+      </header>
+      <blockquote>
+        <p>And now these three remain: faith, hope and love. But the greatest of these is love.</p>
+        <footer>1 Corinthians 13:13 <cite>NIV</cite></footer>
+      </blockquote>
+      <div id="gol"></div>
+      <section>
+        <h3 id="projects">Projects</h3>
+        <div>
+          <article>
+            <header>
+              <h4>Busmap</h4>
+            </header>
+            <ul>
+              <li>
+                <a href="https://test.busmap.online">Demo</a>
+              </li>
+              <li>
+                <a href="https://github.com/morganney/busmap">GitHub</a>
+              </li>
+            </ul>
+            <p>
+              Responsive web app providing leaflet maps of real-time arrival, and departure times of vehicles servicing
+              bus stops along routes in transit agencies across North and South America. Uses the
+              <a href="https://github.com/morganney/restbus"><code>restbus</code></a> API and other transit data
+              providers.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4>Headed2</h4>
+            </header>
+            <ul>
+              <li>
+                <a href="https://www.cacareerzone.org">Home page</a>
+              </li>
+              <li>
+                <a href="https://www.cacareerzone.org/register">Registration</a>
+              </li>
+            </ul>
+            <p>
+              Fully resposive home page and registration for K-12 educational sofware provider
+              <a href="https://headed2.com/">Headed2</a>. Includes customized home page for all 50 states, and dual
+              registration mode as a modal or standalone page.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4><code>tts-react</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a href="https://morganney.github.io/tts-react/">Demo</a>
+              </li>
+              <li>
+                <a href="https://github.com/morganney/tts-react">GitHub</a>
+              </li>
+            </ul>
+            <p>
+              React component and hook that uses the
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" rel="nofollow"
+                ><code>SpeechSynthesis</code></a
+              >
+              and
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance" rel="nofollow"
+                ><code>SpeechSynthesisUtterance</code></a
+              >
+              API's to convert text to speech. Additionally supports the
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" rel="nofollow"
+                ><code>HTMLAudioElement</code></a
+              >
+              API by providing a callback prop to the hook or component.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4><code>@knighted/duel</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a href="https://github.com/knightedcodemonkey/duel">GitHub</a>
+              </li>
+            </ul>
+            <p>
+              Tool for building a Node.js
+              <a href="https://nodejs.org/api/packages.html#dual-commonjses-module-packages">dual package</a> with
+              TypeScript. Uses
+              <a href="https://github.com/knightedcodemonkey/specifier"><code>@knighted/specifier</code></a> to rewrite
+              module specifiers. Supports CommonJS and ES module projects.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4><code>magic-comments-loader</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a href="https://github.com/morganney/magic-comments-loader">GitHub</a>
+              </li>
+            </ul>
+            <p>
+              Node.js tool for adding Webpack
+              <a href="https://webpack.js.org/api/module-methods/#magic-comments">magic comments</a>. Specifically, a
+              <a href="https://webpack.js.org/loaders/">Webpack loader</a> that adds magic comments to your import
+              expressions at build time.
+            </p>
+          </article>
+        </div>
+      </section>
+      <div id="gol2"></div>
+      <footer>
+        <ul>
+          <li>
+            <a href="https://github.com/morganney">GitHub</a>
+            <a href="https://www.linkedin.com/in/morganney/">LinkedIn</a>
+            <a href="https://morgan.neys.info/resume">Resume</a>
+          </li>
+        </ul>
+        <address>
+          <a href="tel:+19038782665">
+            <span>(903) 878-2665</span>
+          </a>
+          <a href="mailto:morganney@gmail.com">
+            <span>morganney@gmail.com</span>
+          </a>
+          <span>432 CR 1236 Quitman, TX 75783</span>
+        </address>
+      </footer>
+    </main>
+  </body>
+</html>

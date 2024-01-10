@@ -1,0 +1,24 @@
+{
+  "name": "morganney",
+  "version": "1.0.0",
+  "description": "Morgan Ney.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prettier": "prettier -w .",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "Morgan Ney <morganney@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "vite": "^5.0.11",
+    "vite-plugin-html": "^3.2.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 119
+  }
+}
