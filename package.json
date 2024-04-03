@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "prettier": "^3.2.4",
-    "vite": "^5.0.12",
+    "vite": "^5.0.13",
     "vite-plugin-html": "^3.2.1"
   },
   "prettier": {
