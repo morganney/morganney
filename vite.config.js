@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      external: ['react', 'react-dom/client', 'tts-react', 'htm/react']
+      external: ['react', 'react-dom/client', 'tts-react', 'htm']
     }
   }
 })
