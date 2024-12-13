@@ -6,5 +6,3 @@
 - Testing / QA
 - [CI / CD](https://docs.github.com/en/actions)
 - Creativity
-
-Read about some of my [recent projects](https://morganney.github.io/morganney/#projects) to see what else I've been working on, or check out [my public repositories](https://github.com/morganney?tab=repositories).

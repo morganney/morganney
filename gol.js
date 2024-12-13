@@ -1,6 +1,7 @@
-import { useState, useMemo, useRef, useEffect } from 'react'
-import { html } from 'htm/react'
+import { useState, useMemo, useRef, useEffect, createElement } from 'react'
+import htm from 'htm'
 
+const html = htm.bind(createElement)
 const GENERATION_TIME = 1_250
 const NOT_RUNNING = 'game not running'
 const RUNNING = 'game is running'
