@@ -147,19 +147,22 @@
     <script type="importmap">
       {
         "imports": {
-          "react": "https://esm.sh/react",
-          "react-dom/": "https://esm.sh/react-dom/",
+          "react": "https://esm.sh/react@18.3.1",
+          "react-dom/": "https://esm.sh/react-dom@18.3.1/",
           "tts-react": "https://esm.sh/tts-react@3.0.6",
-          "htm/": "https://esm.sh/htm/"
+          "htm": "https://esm.sh/htm"
         }
       }
     </script>
     <script type="module">
+      import { createElement } from 'react'
       import { createRoot } from 'react-dom/client'
+      // @TODO release v4.0.0 which uses React 19 and React DOM 19 as peer deps
       import { TextToSpeech } from 'tts-react'
-      import { html } from 'htm/react'
-
+      import htm from 'htm'
       import { Gol } from './gol.js'
+
+      const html = htm.bind(createElement)
 
       createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 5} /> `)
       createRoot(document.getElementById('gol2')).render(html` <${Gol} scale=${1 / 14} /> `)
