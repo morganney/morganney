@@ -147,9 +147,9 @@
     <script type="importmap">
       {
         "imports": {
-          "react": "https://esm.sh/react@18.3.1",
-          "react-dom/": "https://esm.sh/react-dom@18.3.1/",
-          "tts-react": "https://esm.sh/tts-react@3.0.6",
+          "react": "https://esm.sh/react",
+          "react-dom/": "https://esm.sh/react-dom/",
+          "tts-react": "https://esm.sh/tts-react",
           "htm": "https://esm.sh/htm"
         }
       }
@@ -157,7 +157,6 @@
     <script type="module">
       import { createElement } from 'react'
       import { createRoot } from 'react-dom/client'
-      // @TODO release v4.0.0 which uses React 19 and React DOM 19 as peer deps
       import { TextToSpeech } from 'tts-react'
       import htm from 'htm'
       import { Gol } from './gol.js'
@@ -201,7 +200,7 @@
             </header>
             <ul>
               <li>
-                <a target="_blank" href="https://try.busmap.online/stop/ttc/511/511_0_511am/12891">Demo</a>
+                <a target="_blank" href="https://try.busmap.online">Demo</a>
               </li>
               <li>
                 <a target="_blank" href="https://github.com/morganney/busmap">GitHub</a>
