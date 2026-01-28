@@ -1,7 +1,6 @@
-import { useState, useMemo, useRef, useEffect, createElement } from 'react'
-import htm from 'htm'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { reactJsx } from '@knighted/jsx/react/lite'
 
-const html = htm.bind(createElement)
 const GENERATION_TIME = 1_250
 const NOT_RUNNING = 'game not running'
 const RUNNING = 'game is running'
@@ -108,19 +107,23 @@ export function Gol({ scale = 1 }) {
 
   useEffect(() => {
     let timer = null
+    let raf = null
 
     if (status === RUNNING) {
       timer = setTimeout(nextGeneration, GENERATION_TIME)
     }
 
     if (status === ENDED) {
-      prev.current = cells
-      setStatus(RUNNING)
-      setCells(Utils.getRandomMatrix(size))
+      raf = requestAnimationFrame(() => {
+        prev.current = cells
+        setStatus(RUNNING)
+        setCells(Utils.getRandomMatrix(size))
+      })
     }
 
     return () => {
       clearTimeout(timer)
+      cancelAnimationFrame(raf)
     }
   }, [status, size, cells, nextGeneration])
 
@@ -140,13 +143,13 @@ export function Gol({ scale = 1 }) {
     }
   }, [])
 
-  return html`
-    <div className="gol-grid" ref=${ref}>
+  return reactJsx`
+    <div className="gol-grid" ref={${ref}}>
       ${cells.map((row, ridx) => {
         return row.map((cell, cidx) => {
           const classes = cell === 1 ? 'alive' : 'dead'
 
-          return html`<span key=${ridx + cidx * cidx} className=${classes} />`
+          return reactJsx`<span key={${ridx + cidx * cidx}} className={${classes}} />`
         })
       })}
     </div>

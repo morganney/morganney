@@ -61,6 +61,11 @@
       h3 {
         margin: 0 0 16px 0;
       }
+      code.inline {
+        background: #efefef;
+        border-radius: 4px;
+        padding: 0 4px;
+      }
       p {
         margin: 0;
       }
@@ -150,24 +155,22 @@
           "react": "https://esm.sh/react",
           "react-dom/": "https://esm.sh/react-dom/",
           "tts-react": "https://esm.sh/tts-react",
-          "htm": "https://esm.sh/htm"
+          "@knighted/jsx/react/lite": "https://cdn.jsdelivr.net/npm/@knighted/jsx@1.7.5/react/lite/+esm"
         }
       }
     </script>
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@knighted/jsx@1.7.5/react/lite/+esm" />
     <script type="module">
-      import { createElement } from 'react'
       import { createRoot } from 'react-dom/client'
       import { TextToSpeech } from 'tts-react'
-      import htm from 'htm'
+      import { reactJsx } from '@knighted/jsx/react/lite'
       import { Gol } from './gol.js'
 
-      const html = htm.bind(createElement)
-
-      createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 5} /> `)
-      createRoot(document.getElementById('gol2')).render(html` <${Gol} scale=${1 / 14} /> `)
+      createRoot(document.getElementById('gol')).render(reactJsx` <${Gol} scale={${1 / 5}} /> `)
+      createRoot(document.getElementById('gol2')).render(reactJsx` <${Gol} scale={${1 / 14}} /> `)
       createRoot(document.getElementById('tts')).render(
-        html`
-          <${TextToSpeech} allowMuting=${false} size="small" rate=${0.9}>
+        reactJsx`
+          <${TextToSpeech} allowMuting={${false}} size="small" rate={${0.9}}>
             Morgan Nigh
           </${TextToSpeech}>
         `
@@ -191,6 +194,79 @@
         <footer>1 Corinthians 13:13 <cite>NIV</cite></footer>
       </blockquote>
       <div id="gol"></div>
+      <section>
+        <h3 id="ai-driven-rd">AI-Driven R&amp;D</h3>
+        <div>
+          <p>
+            These projects were developed using agentic AI workflows (Cursor and VSCode + Copilot Agent/Plan) for
+            architectural design and implementation, with automated PR reviews via CodeRabbit and Copilot.
+          </p>
+          <article>
+            <header>
+              <h4><code>@knighted/jsx</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://knightedcodemonkey.github.io/jsx/">CDN</a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/morganney/jsx-loader-demo"
+                  >Loader</a
+                >
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/morganney/jsx-node-playground"
+                  >SSR + Hydration</a
+                >
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/knightedcodemonkey/jsx"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+            <p>
+              Rust-powered runtime JSX tagged template that renders DOM or React trees anywhere, with or without a
+              build step.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4><code>@knighted/css</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/morganney/css-jsx-app">Demo</a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/knightedcodemonkey/css"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+            <p>
+              Walks your module graph, compiles CSS dependencies, and ships a bundled stylesheet plus optional typed
+              selector manifests. Use it standalone via <code class="inline">css()</code> or with bundlers via the
+              <code class="inline">?knighted-css</code> loader.
+            </p>
+          </article>
+          <article>
+            <header>
+              <h4><code>@knighted/jsx-ts-plugin</code></h4>
+            </header>
+            <ul>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/knightedcodemonkey/jsx-ts-plugin"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+            <p>
+              TypeScript plugin for JSX development, built with AI-assisted architectural design and implementation.
+            </p>
+          </article>
+        </div>
+      </section>
       <section>
         <h3 id="projects">Projects</h3>
         <div>
