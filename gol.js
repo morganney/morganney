@@ -1,7 +1,6 @@
-import { useState, useMemo, useRef, useEffect, createElement } from 'react'
-import htm from 'htm'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { reactJsx } from '@knighted/jsx/react/lite'
 
-const html = htm.bind(createElement)
 const GENERATION_TIME = 1_250
 const NOT_RUNNING = 'game not running'
 const RUNNING = 'game is running'
@@ -144,13 +143,13 @@ export function Gol({ scale = 1 }) {
     }
   }, [])
 
-  return html`
-    <div className="gol-grid" ref=${ref}>
+  return reactJsx`
+    <div className="gol-grid" ref={${ref}}>
       ${cells.map((row, ridx) => {
         return row.map((cell, cidx) => {
           const classes = cell === 1 ? 'alive' : 'dead'
 
-          return html`<span key=${ridx + cidx * cidx} className=${classes} />`
+          return reactJsx`<span key={${ridx + cidx * cidx}} className={${classes}} />`
         })
       })}
     </div>

@@ -155,24 +155,22 @@
           "react": "https://esm.sh/react",
           "react-dom/": "https://esm.sh/react-dom/",
           "tts-react": "https://esm.sh/tts-react",
-          "htm": "https://esm.sh/htm"
+          "@knighted/jsx/react/lite": "https://cdn.jsdelivr.net/npm/@knighted/jsx@1.7.5/react/lite/+esm"
         }
       }
     </script>
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@knighted/jsx@1.7.5/react/lite/+esm" />
     <script type="module">
-      import { createElement } from 'react'
       import { createRoot } from 'react-dom/client'
       import { TextToSpeech } from 'tts-react'
-      import htm from 'htm'
+      import { reactJsx } from '@knighted/jsx/react/lite'
       import { Gol } from './gol.js'
 
-      const html = htm.bind(createElement)
-
-      createRoot(document.getElementById('gol')).render(html` <${Gol} scale=${1 / 5} /> `)
-      createRoot(document.getElementById('gol2')).render(html` <${Gol} scale=${1 / 14} /> `)
+      createRoot(document.getElementById('gol')).render(reactJsx` <${Gol} scale={${1 / 5}} /> `)
+      createRoot(document.getElementById('gol2')).render(reactJsx` <${Gol} scale={${1 / 14}} /> `)
       createRoot(document.getElementById('tts')).render(
-        html`
-          <${TextToSpeech} allowMuting=${false} size="small" rate=${0.9}>
+        reactJsx`
+          <${TextToSpeech} allowMuting={${false}} size="small" rate={${0.9}}>
             Morgan Nigh
           </${TextToSpeech}>
         `
