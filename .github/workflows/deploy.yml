@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Save error log
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         if: ${{ failure() }}
         with:
           name: npm-debug-log-${{ hashFiles('package-lock.json') }}
@@ -36,11 +36,11 @@ jobs:
       - name: Build
         run: npm run build:deploy
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: './dist/'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

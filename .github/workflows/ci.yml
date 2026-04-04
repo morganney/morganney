@@ -22,7 +22,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Save error log
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         if: ${{ failure() }}
         with:
           name: npm-debug-log-${{ hashFiles('package-lock.json') }}
